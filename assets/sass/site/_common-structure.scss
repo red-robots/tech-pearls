@@ -1,0 +1,112 @@
+div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
+	overflow-wrap: normal;
+    word-wrap: normal;
+    -ms-word-break: normal;
+    word-break: normal;
+    word-break: normal;
+    -ms-hyphens: none;
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    hyphens: none;
+    page-break-inside: avoid;
+}
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+body {
+	font-family: $font__main;
+	line-height: $font__line-height-body;
+	font-size: 14px;
+	color: $color-default-text;
+}
+.wrapper, .clear {clear: both;}
+.wrapper:before, .wrapper:after, .clear:before,.clear:after {content: " "; display: table; }
+.wrapper:after, .clear:after {clear: both;}
+.wrapper, .clear {*zoom: 1;}
+.wrapper {
+	width: 100%;
+	margin: 0px auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	@media screen and (min-width: $midwidth) {
+		max-width: 1200px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.content-area {
+	width: 100%;
+	margin: 0px auto;
+	
+	@media screen and (min-width: $tabwidth) {
+		width: 66%;
+		float: left;
+		margin: 0;
+	}
+	@media screen and (min-width: $deskwidth) {
+		/*width: 1200px;*/
+	}
+}
+
+.widget-area {
+	width: 100%;
+	margin: 0px auto;
+	
+	@media screen and (min-width: $tabwidth) {
+		width: 26%;
+		float: right;
+		margin: 0;
+	}
+	@media screen and (min-width: $deskwidth) {
+		/*width: 1200px;*/
+	}
+}
+
+/* Logo */
+.logo {
+	display: block;
+	width: 150px;
+	margin: 0;
+	position: absolute;
+	z-index: 10;
+	@media screen and (min-width: $tabwidth) {
+		width: 180px;
+		top: 30px;
+	}
+	@media screen and (min-width: $midwidth) {
+		width: 250px;
+	}
+	a {
+		display: block;
+		width: 100%;
+		float: left;
+		text-decoration: none;
+		color: #FFF;
+		font-size: 30px;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+}
+
+.site-header {
+	position: relative;
+	.header-inner {
+		position: relative;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+.home .site-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	width: 100%;
+}
