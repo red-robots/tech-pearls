@@ -19,6 +19,10 @@ function acstarter_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	if ( !is_home() || !is_front_page() ) {
+		$classes[] = 'subpage';
+	}
+
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -241,4 +245,14 @@ add_filter("gform_init_scripts_footer", "init_scripts");
 function init_scripts() {
     return true;
 }
+
+function my_custom_admin_head() { ?>
+    <style type="text/css">
+        [data-name="courses_types"] .image-wrap {
+            max-width: 80px!important;
+        }
+    </style>
+<?php
+}
+add_action( 'admin_head', 'my_custom_admin_head' );
 
