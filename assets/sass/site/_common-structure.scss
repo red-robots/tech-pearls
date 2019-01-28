@@ -35,14 +35,6 @@ body {
 	margin: 0px auto;
 	padding-left: 20px;
 	padding-right: 20px;
-	@media screen and (min-width: $midwidth) {
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-	@media screen and (min-width: $deskwidth) {
-		padding-left: 0;
-		padding-right: 0;
-	}
 }
 
 .content-area {

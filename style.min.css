@@ -1816,9 +1816,7 @@ body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#06
 .wrapper:after,.clear:after{clear:both}
 .wrapper,.clear{*zoom:1}
 .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
-@media screen and (min-width:900px){.wrapper{padding-left:30px;padding-right:30px}
-}@media screen and (min-width:1200px){.wrapper{padding-left:0;padding-right:0}
-}.content-area{width:100%;margin:0 auto}
+.content-area{width:100%;margin:0 auto}
 @media screen and (min-width:600px){.content-area{width:66%;float:left;margin:0}
 }@media screen and (min-width:1200px){}
 .widget-area{width:100%;margin:0 auto}
@@ -1915,8 +1913,9 @@ body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#06
 .list-column .more-link a:hover span{border-bottom-color:#fda32f}
 .list-column .more-link a:hover i,.list-column .more-link a:hover i:before,.list-column .more-link a:hover i:after{background:#fda32f}
 .course-cta-button{margin-top:60px;margin-bottom:40px}
-.section-testimonial{padding-top:100px;padding-bottom:100px;background:#dbdfdf}
-@media screen and (min-width:600px){.section-testimonial .wrapper{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.section-testimonial{padding-top:50px;padding-bottom:50px;background:#dbdfdf}
+@media screen and (min-width:600px){.section-testimonial{padding-top:120px;padding-bottom:120px}
+}@media screen and (min-width:600px){.section-testimonial .wrapper{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 }.section-testimonial .column{margin-bottom:30px}
 @media screen and (min-width:600px){.section-testimonial .column{width:50%;float:left;margin-bottom:0}
 }.section-testimonial .carousel-list{position:relative;width:100%;float:left}

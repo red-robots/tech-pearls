@@ -373,9 +373,13 @@
 	margin-bottom: 40px;
 }
 .section-testimonial {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	background: $color-subtle-grey;
+	@media screen and (min-width: $tabwidth) {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
 	.wrapper {
 		@media screen and (min-width: $tabwidth) {
 			@include flexbox();
