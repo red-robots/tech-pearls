@@ -116,7 +116,7 @@
 .section-advatages {
 	padding-top: 50px;
 	padding-bottom: 50px;
-	background: #dbdfdf;
+	background: $color-subtle-grey;
 	.row {
 		margin-left: -20px;
 		margin-right: -20px;
@@ -372,4 +372,254 @@
 	margin-top: 60px;
 	margin-bottom: 40px;
 }
+.section-testimonial {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background: $color-subtle-grey;
+	.wrapper {
+		@media screen and (min-width: $tabwidth) {
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+			@include flexbox-justify(center);
+			@include flexbox-align-items(center);
+		}
+	}
+	.column {
+		margin-bottom: 30px;
+		@media screen and (min-width: $tabwidth) {
+			width: 50%;
+			float: left;
+			margin-bottom: 0;
+		}
+	}
+	.carousel-list {
+		position: relative;
+		width: 100%;
+    	float: left;
+	}
+	.testimonial .list {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		position: relative;
+	}
+	.testimonial .inside {
+		@media screen and (min-width: $tabwidth) {
+			padding-right: 5px;
+		}
+		@media screen and (min-width: $midwidth) {
+			padding-right: 30px;
+		}
+	}
+	.testimonial-text {
+		text-align: center;
+		font-size: 18px;
+		font-weight: 300;
+		font-style: italic;
+		display: none!important;
+		&.cycle-slide-active {
+			display: block!important;
+			position: relative!important;
+		}
+	}
+	p {
+		margin-bottom: 12px;
+	}
+	.author {
+		position: relative;
+		top: -5px;
+		font-size: 16px;
+	}
+	.pager-nav {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		text-align: center;
+		width: 100%;
+    	float: left;
+	}
+	.pager-nav span {
+		display: inline-block;
+		text-indent: -999em;
+		width: 8px;
+		height: 8px;
+		background: $color-dark-green;
+		border-radius: 100px;
+		margin: 0 4px;
+		position: relative;
+		&.cycle-pager-active {
+			background: $color-yellow;
+		}
+	}
+}
+.subcribe-form {
+	.inside {
+		@media screen and (min-width: $tabwidth) {
+			padding-left: 20px;
+		}
+		@media screen and (min-width: $midwidth) {
+			padding-left: 50px;
+		}
+	}
+	.form-wrapper {
+		border: 1px solid $color-dark-green;
+		padding: 20px 30px;
+	}
+	.gfield_label,
+	.gfield_required {
+		display: none!important;
+	}
+	.ginput_container * {
+		box-sizing: border-box;
+	}
+	.gform_footer {
+		margin: 20px 0 0!important;
+		padding: 0!important;
+		text-align: center;
+	}
+	.ginput_container input {
+		width: 100%!important;
+		border-radius: 0;
+		-webkit-appearance: none;
+		border: 1px solid #FFF;
+		background: #FFF;
+		padding: 6px 10px!important;
+		outline: none;
+		@include transition(all ease-out .3s);
+	}
+	.ginput_container input:focus {
+		border: 1px solid $color-dark-green;
+	}
+	.titlediv {
+		width: 100%;
+		text-align: center;
+		@media screen and (min-width: $midwidth) {
+			width: 65%;
+			margin: 0 auto;
+		}
+	}
+	.formtitle1 {
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 1.2;
+		color: $color-dark-green;
+		margin: 0 0 10px;
+		text-align: center;
+		letter-spacing: 1px;
+	}
+	.formtitle2 {
+		padding: 3px 20px;
+		font-size: 14px;
+		color: #FFF;
+		background: $color-yellow;
+	}
+	.gform_wrapper {
+		margin: 5px 0 0;
+		width: 100%;
+		float: left;
+	}
+	.gform_wrapper ul.gform_fields li.gfield {
+		padding: 0 0;
+	}
+	.gform_wrapper .gform_footer input.button, 
+	.gform_wrapper .gform_footer input[type=submit] {
+		-webkit-appearance: none;
+		border-radius: 0;
+		border: none;
+		box-shadow: none;
+		text-shadow: none;
+		background: $color-dark-green;
+		color: #FFF;
+		text-transform: uppercase;
+		margin: 0 0;
+		height: 30px;
+		line-height: 29px;
+		padding-top: 0;
+		padding-bottom: 0;
+		@include transition(all ease-out .3s);
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
 
+.site-footer {
+	background: $color-yellow;
+	color: #FFF;
+	.wrapper {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		@media screen and (min-width: $tabwidth) {
+			@include flexbox();
+			@include flexbox-justify(center);
+		}
+	}
+	.footer-menu-column {
+		position: relative;
+		padding-top: 10px;
+		padding-bottom: 12px;
+		border-top: 1px solid #FFF;
+		@media screen and (min-width: $tabwidth) {
+			display: inline-block;
+			width: 100%;
+			padding-top: 0;
+			padding-bottom: 0;
+			border-top: none;
+			&:before {
+				content:"";
+				display: block;
+				width: 1px;
+				height: 85%;
+				background: #FFF;
+				position: absolute;
+				top: 6px;
+				left: 0;
+			}
+		}
+	}
+	.footer-menu-column:first-child {
+		padding-top: 0;
+		border-top: none;
+		&:before {
+			display: none;
+		}
+	}
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	.footer-list {
+		@media screen and (min-width: $tabwidth) {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+	.footer-menu-column a {
+		display: inline-block;
+		text-decoration: none;
+		color: #FFF;
+		font-size: 12px;
+		font-weight: 500;
+		padding: 3px 0;
+		@include transition(all ease-out .3s);
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+	.social-media a {
+		font-size: 30px;
+		line-height: 1;
+	}
+	.company-info .link {
+		@media screen and (min-width: $tabwidth) {
+			padding-right: 30px;
+		}
+	}
+}
+.copyright-section {
+	height: 40px;
+	background: $color-dark-green;
+}

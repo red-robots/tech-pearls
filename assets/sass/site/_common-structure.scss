@@ -192,6 +192,13 @@ body {
 	}
 }
 
+.full-content-area {
+	min-height: 30em;
+}
+.subpage .site-main {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 @media screen and (max-width: 600px) {
 	#wpadminbar {
 		position: fixed!important;

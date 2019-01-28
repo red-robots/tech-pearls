@@ -1844,6 +1844,8 @@ body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#06
 @media screen and (min-width:600px){.home .site-header .logo{top:0}
 }.cta-btn.yellow{display:inline-block;background:#fda32f;color:#FFF;text-decoration:none;padding:13px 35px;font-size:20px;font-weight:400;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 .cta-btn:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1)}
+.full-content-area{min-height:30em}
+.subpage .site-main{padding-top:20px;padding-bottom:20px}
 @media screen and (max-width:600px){#wpadminbar{position:fixed !important}
 }.banner{background-color:#a1a1a1;background-size:cover;background-repeat:no-repeat;background-position:top center;height:450px;position:relative}
 @media screen and (min-width:600px){.banner{height:600px}
@@ -1913,6 +1915,52 @@ body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#06
 .list-column .more-link a:hover span{border-bottom-color:#fda32f}
 .list-column .more-link a:hover i,.list-column .more-link a:hover i:before,.list-column .more-link a:hover i:after{background:#fda32f}
 .course-cta-button{margin-top:60px;margin-bottom:40px}
+.section-testimonial{padding-top:100px;padding-bottom:100px;background:#dbdfdf}
+@media screen and (min-width:600px){.section-testimonial .wrapper{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}.section-testimonial .column{margin-bottom:30px}
+@media screen and (min-width:600px){.section-testimonial .column{width:50%;float:left;margin-bottom:0}
+}.section-testimonial .carousel-list{position:relative;width:100%;float:left}
+.section-testimonial .testimonial .list{margin:0;padding:0;list-style:none;position:relative}
+@media screen and (min-width:600px){.section-testimonial .testimonial .inside{padding-right:5px}
+}@media screen and (min-width:900px){.section-testimonial .testimonial .inside{padding-right:30px}
+}.section-testimonial .testimonial-text{text-align:center;font-size:18px;font-weight:300;font-style:italic;display:none !important}
+.section-testimonial .testimonial-text.cycle-slide-active{display:block !important;position:relative !important}
+.section-testimonial p{margin-bottom:12px}
+.section-testimonial .author{position:relative;top:-5px;font-size:16px}
+.section-testimonial .pager-nav{margin:0;padding:0;list-style:none;text-align:center;width:100%;float:left}
+.section-testimonial .pager-nav span{display:inline-block;text-indent:-999em;width:8px;height:8px;background:#063748;border-radius:100px;margin:0 4px;position:relative}
+.section-testimonial .pager-nav span.cycle-pager-active{background:#fda32f}
+@media screen and (min-width:600px){.subcribe-form .inside{padding-left:20px}
+}@media screen and (min-width:900px){.subcribe-form .inside{padding-left:50px}
+}.subcribe-form .form-wrapper{border:1px solid #063748;padding:20px 30px}
+.subcribe-form .gfield_label,.subcribe-form .gfield_required{display:none !important}
+.subcribe-form .ginput_container *{box-sizing:border-box}
+.subcribe-form .gform_footer{margin:20px 0 0 !important;padding:0 !important;text-align:center}
+.subcribe-form .ginput_container input{width:100% !important;border-radius:0;-webkit-appearance:none;border:1px solid #FFF;background:#FFF;padding:6px 10px !important;outline:0;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+.subcribe-form .ginput_container input:focus{border:1px solid #063748}
+.subcribe-form .titlediv{width:100%;text-align:center}
+@media screen and (min-width:900px){.subcribe-form .titlediv{width:65%;margin:0 auto}
+}.subcribe-form .formtitle1{text-transform:uppercase;font-weight:700;font-size:24px;line-height:1.2;color:#063748;margin:0 0 10px;text-align:center;letter-spacing:1px}
+.subcribe-form .formtitle2{padding:3px 20px;font-size:14px;color:#FFF;background:#fda32f}
+.subcribe-form .gform_wrapper{margin:5px 0 0;width:100%;float:left}
+.subcribe-form .gform_wrapper ul.gform_fields li.gfield{padding:0}
+.subcribe-form .gform_wrapper .gform_footer input.button,.subcribe-form .gform_wrapper .gform_footer input[type=submit]{-webkit-appearance:none;border-radius:0;border:0;box-shadow:none;text-shadow:none;background:#063748;color:#FFF;text-transform:uppercase;margin:0;height:30px;line-height:29px;padding-top:0;padding-bottom:0;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+.subcribe-form .gform_wrapper .gform_footer input.button:hover,.subcribe-form .gform_wrapper .gform_footer input[type=submit]:hover{opacity:.8}
+.site-footer{background:#fda32f;color:#FFF}
+.site-footer .wrapper{padding-top:20px;padding-bottom:20px}
+@media screen and (min-width:600px){.site-footer .wrapper{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+}.site-footer .footer-menu-column{position:relative;padding-top:10px;padding-bottom:12px;border-top:1px solid #FFF}
+@media screen and (min-width:600px){.site-footer .footer-menu-column{display:inline-block;width:100%;padding-top:0;padding-bottom:0;border-top:0}
+.site-footer .footer-menu-column:before{content:"";display:block;width:1px;height:85%;background:#FFF;position:absolute;top:6px;left:0}
+}.site-footer .footer-menu-column:first-child{padding-top:0;border-top:0}
+.site-footer .footer-menu-column:first-child:before{display:none}
+.site-footer ul{margin:0;padding:0;list-style:none}
+@media screen and (min-width:600px){.site-footer .footer-list{padding-left:30px;padding-right:30px}
+}.site-footer .footer-menu-column a{display:inline-block;text-decoration:none;color:#FFF;font-size:12px;font-weight:500;padding:3px 0;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+.site-footer .footer-menu-column a:hover{opacity:.5}
+.site-footer .social-media a{font-size:30px;line-height:1}
+@media screen and (min-width:600px){.site-footer .company-info .link{padding-right:30px}
+}.copyright-section{height:40px;background:#063748}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

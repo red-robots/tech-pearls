@@ -52,4 +52,12 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	$('#featuredTestimonial').cycle({ 
+	    timeout:   10000,
+	    fx:      'carousel',
+	    slides: '> .testimonial-text',
+	    speed: 900,
+	    pager: '.pager-nav'
+  	});   
+
 });// END #####################################    END

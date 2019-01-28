@@ -14,10 +14,11 @@ function js_custom_init() {
             'supports'  => array('title','editor','thumbnail')
         ),
         array(
-            'post_type' => 'services',
-            'menu_name' => 'Services',
-            'plural'    => 'Services',
-            'single'    => 'Service',
+            'post_type' => 'testimonial',
+            'menu_name' => 'Testimonials',
+            'plural'    => 'Testimonials',
+            'single'    => 'Testimonial',
+            'menu_icon' => 'dashicons-format-quote',
             'supports'  => array('title','editor','thumbnail')
         )
     );
@@ -148,44 +149,20 @@ function custom_post_column( $column, $post_id ) {
     global $wp_query;
     $query = isset($wp_query->query) ? $wp_query->query : '';
     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
-    
-    if($post_type=='position') {
-        switch ( $column ) {
-            case 'status' :
-                $terms = get_the_terms($post_id,'status');
-//                $status = get_field('assignment_status',$post_id);
-//                if($status) {
-//                    echo ucwords($status);
-//                }
-//                else {
-//                    echo 'N/A';
-//                }
-                
-                $status_info = '';
-                if($terms) {
-                    $i=1; foreach($terms as $ss) {
-                        $comma = ($i>1) ? ', ':'';
-                        $status_info .= $comma . $ss->name;
-                        $i++;
-                    }
-                }
-                echo ($status_info) ? $status_info : '--';
-                break;
-        }
-    }
-    
     if($post_type=='team') {
         switch ( $column ) {
             case 'photo' :
-                $img = get_field('team_individual_image',$post_id);
-                $img_src = ($img) ? $img['sizes']['thumbnail'] : '';
-                $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;">';
+                $post_thumbnail_id = get_post_thumbnail_id( $post_id );
+                $img = wp_get_attachment_image_src($post_thumbnail_id,'medium');
+                $img_src = ($img) ? $img[0] : '';
                 if($img_src) {
-                   $the_photo .= '<img src="'.$img_src.'" alt="" style="width:100%;height:auto" />';
+                    $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:url('.$img_src.') top center no-repeat #e2e1e1;background-size:cover;text-align:center;"></span>';
                 } else {
+                    $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;">';
                     $the_photo .= '<i class="dashicons dashicons-businessman" style="font-size:33px;position:relative;top:8px;left:-6px;opacity:0.3;"></i>';
+                    $the_photo .= '</span>';
                 }
-                $the_photo .= '</span>';
+                
                 echo $the_photo;
         }
     }
