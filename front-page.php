@@ -158,6 +158,7 @@ get_header(); ?>
 		    'post_type'         => 'testimonial',
 		    'post_status'       => 'publish'  
 	    );
+	    $count_posts = count( get_posts($args) );
 		$items = new WP_Query($args); ?>
 			
 		<section class="section section-testimonial clear">
@@ -177,7 +178,9 @@ get_header(); ?>
 									<?php endwhile; wp_reset_postdata(); ?>
 								</ul>
 							</div>
-							<div class="pager-nav"></div>
+							<?php if($count_posts>1) { ?>
+								<div class="pager-nav"></div>
+							<?php } ?>
 						</div>
 					</div>
 				<?php } ?>
