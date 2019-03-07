@@ -35,8 +35,16 @@ body {
 	margin: 0px auto;
 	padding-left: 20px;
 	padding-right: 20px;
+	box-sizing: border-box;
 }
-
+.med-wrapper {
+	max-width: 900px;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0 auto;
+}
 .content-area {
 	width: 100%;
 	margin: 0px auto;

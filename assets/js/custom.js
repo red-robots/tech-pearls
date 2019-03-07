@@ -12,10 +12,9 @@ jQuery(document).ready(function ($) {
 	__________________________________________
 	*/
 	$('.question').click(function() {
-	    $(this).next('.answer').slideToggle(500);
-	    $(this).toggleClass('close');
-	    $(this).find('.plus-minus-toggle').toggleClass('collapsed');
-	    $(this).parent().toggleClass('active');
+		var parent = $(this).parents('.faqrow');
+		parent.toggleClass('collapse');
+	   	$(this).next('.answer').slideToggle();
 	});
 
 	/*

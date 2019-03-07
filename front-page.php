@@ -114,7 +114,7 @@ get_header(); ?>
 
 												<?php if($list_title) { ?>
 												<div class="list-column">
-													<div class="list-title"><span><?php echo $list_title; ?></span></div>
+													<div class="list-title"><span class="cta"><?php echo $list_title; ?></span></div>
 													<?php if($lists) { ?>
 														<ul class="links">
 															<?php foreach($lists as $s) { 
