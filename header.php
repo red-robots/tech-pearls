@@ -21,43 +21,45 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="site clear">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 	<header id="masthead" class="site-header clear" role="banner">
-		<div class="header-inner clear">
-			<?php if( get_custom_logo() ) { ?>
-	            <div class="logo">
-	            	<?php the_custom_logo(); ?>
-	            </div>
-	        <?php } else { ?>
-	            <h1 class="logo">
-		            <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
-	            </h1>
-	        <?php } ?>
+		<div class="wrapper clear">
+			<div class="header-inner clear">
+				<?php if( get_custom_logo() ) { ?>
+		            <div class="logo">
+		            	<?php the_custom_logo(); ?>
+		            </div>
+		        <?php } else { ?>
+		            <h1 class="logo">
+			            <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
+		            </h1>
+		        <?php } ?>
 
 
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<div class="outer-menu-container clear">
-					<div class="main-menu-container">
-						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container'=>false ) ); ?>
-						<div class="user-navi">
-							<?php
-								$cart_total =  WC()->cart->get_cart_contents_count();
-								$cart_total_text = ($cart_total>0) ? ' <span class="cart-total">('.$cart_total.')</span>':'';
-							?>
-							<?php if(is_user_logged_in()) { ?>
-								<a href="<?php echo get_site_url()?>/my-account/">My Account</a>
-							<?php } else { ?>
-								<a href="<?php echo get_site_url()?>/login/">Login</a>
-							<?php } ?>
-							<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">My Cart<?php echo $cart_total_text;?></a>
+				<nav id="site-navigation" class="main-navigation" role="navigation">
+					<div class="outer-menu-container clear">
+						<div class="main-menu-container">
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container'=>false ) ); ?>
+							<div class="user-navi">
+								<?php
+									$cart_total =  WC()->cart->get_cart_contents_count();
+									$cart_total_text = ($cart_total>0) ? ' <span class="cart-total">('.$cart_total.')</span>':'';
+								?>
+								<?php if(is_user_logged_in()) { ?>
+									<a href="<?php echo get_site_url()?>/my-account/">My Account</a>
+								<?php } else { ?>
+									<a href="<?php echo get_site_url()?>/login/">Login</a>
+								<?php } ?>
+								<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">My Cart<?php echo $cart_total_text;?></a>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="secondary-menu-container clear">
-					<?php wp_nav_menu( array( 'menu' => 'Secondary Menu', 'container'=>false ) ); ?>
-				</div>
-			</nav>
+					<div class="secondary-menu-container clear">
+						<?php wp_nav_menu( array( 'menu' => 'Secondary Menu', 'container'=>false ) ); ?>
+					</div>
+				</nav>
+			</div>
 		</div>
 
 		<div id="mobile-navigation" class="mobile-navigation" role="navigation">

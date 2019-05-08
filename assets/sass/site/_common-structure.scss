@@ -154,18 +154,14 @@ body {
 	left: 0;
 	width: 100%;
 	.header-inner {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 0;
+		padding-right: 0;
 		padding-bottom: 0;
 		@media screen and (min-width: $tabwidth) {
 			padding-top: 20px;
-			padding-left: 20px;
-			padding-right: 20px;
 		}
 		@media screen and (min-width: $midwidth) {
 			padding-top: 30px;
-			padding-left: 30px;
-			padding-right: 30px;
 		}
 	}
 	.logo {
