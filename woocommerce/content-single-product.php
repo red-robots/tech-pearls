@@ -30,8 +30,11 @@ if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+
+$has_product_image = ( $product->get_image_id() ) ? 'has-prod-image':'no-prod-image';
+
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( $has_product_image, $product ); ?>>
 
 	<?php
 	/**

@@ -1089,6 +1089,9 @@ body.single-product {
 		border-top: 5px solid $color-dark-green;
 		padding-top: 15px;
 		margin-top: 20px;
+		h2 {
+			font-size: 20px;
+		}
 	}
 }
 .woocommerce div.product p.price, .woocommerce div.product span.price {
@@ -1215,3 +1218,18 @@ body.woocommerce-checkout .woocommerce button.button {
 li.wc_payment_method label {
 	font-weight: 600;
 }
+.woocommerce #content div.product.no-prod-image div.summary, 
+.woocommerce div.product.no-prod-image div.summary, 
+.woocommerce-page #content div.product.no-prod-image div.summary, 
+.woocommerce-page div.product.no-prod-image div.summary {
+	width: 100%;
+	float: left;
+}
+
+.woocommerce-page div.product.no-prod-image {
+	.woocommerce-product-gallery {
+		display: none;
+	}
+}
+
+
