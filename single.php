@@ -6,7 +6,7 @@
  *
  * @package ACStarter
  */
-
+$post_type = get_post_type();
 get_header(); ?>
 
 	<div id="primary" class="full-content-area area">
@@ -14,7 +14,11 @@ get_header(); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
-			get_template_part( 'template-parts/content', get_post_format() );
+			if($post_type=='product') { ?>
+			<div class="entry-content"><?php the_content(); ?></div>	
+			<?php } else {
+				get_template_part( 'template-parts/content', get_post_format() );
+			}
 		endwhile; // End of the loop.
 		?>
 

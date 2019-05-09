@@ -30,6 +30,16 @@ jQuery(document).ready(function ($) {
  	
  	});
 	
+	/*
+	*
+	*	Colorbox
+	*
+	------------------------------------*/
+	// $('a.cboxElement').colorbox({
+	// 	rel:'gal',
+	// 	maxWidth: '95%',
+	// 	maxHeight: '95%'
+	// });
 
 	/*
 	*
