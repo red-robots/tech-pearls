@@ -2159,6 +2159,19 @@ body.single-product .related.products{width:100%;float:left;border-top:5px solid
 .pswp__button{border:0;box-shadow:none;-webkit-appearance:none}
 .pswp__button:hover{border:0;box-shadow:none;-webkit-appearance:none}
 .woocommerce table.cart td.actions .input-text,.woocommerce-page #content table.cart td.actions .input-text,.woocommerce-page table.cart td.actions .input-text{height:30px;line-height:32px;width:150px}
+body.woocommerce-cart .woocommerce button.button{background-color:#063748;color:#FFF;text-shadow:none}
+body.woocommerce-checkout .woocommerce button.button{color:#063748 !important}
+.woocommerce button.button:disabled,.woocommerce button.button:disabled[disabled]{color:#FFF;opacity:.35}
+.woocommerce .related.products a.button{background-color:#fda32f;color:#FFF}
+.woocommerce .related.products a.button:hover{opacity:.5}
+.woocommerce .related.products .woocommerce-loop-product__title{color:#063748;text-decoration:none}
+.select2-container .select2-selection--single{height:30px;border:1px solid #CCC;border-radius:3px}
+.woocommerce-checkout #payment{background:#c1e3ea}
+.woocommerce-checkout #payment div.payment_box{background:#FFF}
+#add_payment_method #payment div.payment_box::before,.woocommerce-cart #payment div.payment_box::before,.woocommerce-checkout #payment div.payment_box::before{border:1em solid #fff;border-right-color:transparent;border-left-color:transparent;border-top-color:transparent;position:absolute;top:-.75em;left:0;margin:-1em 0 0 2em}
+.woocommerce-checkout #payment ul.payment_methods{border-bottom:1px solid #6ea6a9}
+.woocommerce #payment #place_order,.woocommerce-page #payment #place_order{float:none;display:block;width:200px;margin:0 auto;padding:10px 15px;font-size:16px}
+li.wc_payment_method label{font-weight:600}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}
