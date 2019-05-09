@@ -2158,6 +2158,7 @@ body.single-product .related.products{width:100%;float:left;border-top:5px solid
 .pswp__bg{opacity:.95 !important}
 .pswp__button{border:0;box-shadow:none;-webkit-appearance:none}
 .pswp__button:hover{border:0;box-shadow:none;-webkit-appearance:none}
+.woocommerce table.cart td.actions .input-text,.woocommerce-page #content table.cart td.actions .input-text,.woocommerce-page table.cart td.actions .input-text{height:30px;line-height:32px;width:150px}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

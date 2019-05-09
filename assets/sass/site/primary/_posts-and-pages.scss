@@ -1148,4 +1148,10 @@ body.single-product {
 		-webkit-appearance: none;
 	}
 }
+.woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, 
+.woocommerce-page table.cart td.actions .input-text {
+	height: 30px;
+	line-height: 32px;
+    width: 150px;
+}
 
