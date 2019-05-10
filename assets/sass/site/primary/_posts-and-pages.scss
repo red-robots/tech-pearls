@@ -1092,6 +1092,10 @@ body.single-product {
 		h2 {
 			font-size: 20px;
 		}
+		a.button {
+			margin-top: 5px;
+			padding: 7px 12px;
+		}
 	}
 }
 .woocommerce div.product p.price, .woocommerce div.product span.price {
@@ -1103,24 +1107,17 @@ body.single-product {
 	margin-bottom: 20px;
 }
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
-	background: rgb(252,235,80);
-	background: -moz-linear-gradient(top, rgba(252,235,80,1) 0%, rgba(244,203,17,1) 100%);
-	background: -webkit-linear-gradient(top, rgba(252,235,80,1) 0%,rgba(244,203,17,1) 100%);
-	background: linear-gradient(to bottom, rgba(252,235,80,1) 0%,rgba(244,203,17,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceb50', endColorstr='#f4cb11',GradientType=0 );
-	color: #333;
-	border: 1px solid #F4CB11;
-	border-radius: 5px;
-	-webkit-appearance: none;
+	background: $color-yellow;
+	color: #FFF;
 	box-shadow: none;
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, .5);
+	border: none;
+	-webkit-appearance: none;
+	padding: 10px 18px;
+	font-size: 16px;
+	@include transition(all ease-out .3s);
 	&:hover {
-		color: #333;
-		background: rgb(244,203,17);
-		background: -moz-linear-gradient(top, rgba(244,203,17,1) 0%, rgba(252,235,80,1) 100%);
-		background: -webkit-linear-gradient(top, rgba(244,203,17,1) 0%,rgba(252,235,80,1) 100%);
-		background: linear-gradient(to bottom, rgba(244,203,17,1) 0%,rgba(252,235,80,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4cb11', endColorstr='#fceb50',GradientType=0 );
+		background: #ffc645;
+		color: #FFF;
 	}
 }
 .woocommerce-Tabs-panel {
@@ -1175,7 +1172,8 @@ body.woocommerce-checkout .woocommerce button.button {
 		background-color: $color-yellow;
 		color: #FFF;
 		&:hover {
-			opacity: 0.5;
+			background: #ffc645;
+			color: #FFF;
 		}
 	}
 	.woocommerce-loop-product__title {
@@ -1229,6 +1227,178 @@ li.wc_payment_method label {
 .woocommerce-page div.product.no-prod-image {
 	.woocommerce-product-gallery {
 		display: none;
+	}
+}
+
+.woocommerce-tabs {
+	margin-top: 35px;
+}
+.woocommerce ul.products li.product.related-item {
+	.woocommerce-loop-product__title {
+		line-height: 1.3;
+		margin-top: 3px;
+	}
+}
+.woocommerce ul.products li.product .relatedProdImage {
+	text-decoration: none;
+	display: block;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 200px;
+	box-shadow: inset 0px 0px 0px 100% transparent;
+	@include transition(all ease-out .3s);
+	@media screen and (min-width: $tabwidth) {
+		height: 200px;
+	}
+	@media screen and (min-width: $midwidth) {
+		height: 230px;
+	}
+	img {
+		display: none;
+	}
+	&:hover {
+		box-shadow: inset 0px 0px 0px 5px rgba(6,55,72,0.75);
+	}
+}
+.woocommerce ul.products a.button {
+	text-decoration: none;
+	display: inline-block;
+	background: $color-yellow;
+	padding: 10px 14px;
+    color: #FFF;
+    &:hover {
+    	background: #ffc645;
+    }
+}
+.flexrow {
+	position: relative;
+	margin-left: -15px;
+	margin-right: -15px;
+	@media screen and (min-width: $tabwidth) {
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-direction(row);
+	}
+	.flexcol {
+		box-sizing: border-box;
+		position: relative;
+		padding: 15px;
+	}
+}
+.courses-section {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	.flexcol.course {
+		text-align: center;
+		@media screen and (min-width: $tabwidth) {
+			width: 33.3%;
+		}
+	}
+	.icon img {
+		width: 80px;
+		height: auto;
+	}
+	.title {
+		margin: 10px 0 5px;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.3;
+	}
+	.button {
+		margin-top: 28px;
+		a {
+			display: inline-block;
+			padding: 6px 30px;
+			background: $color-yellow;
+			color: #FFF;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 16px;
+			font-weight: 600;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+	}
+}
+.section-course-options {
+	margin-bottom: 30px;
+	.catname {
+		margin: 0 0;
+		padding: 10px 20px;
+		background: $color-yellow;
+		color: $color-dark-green;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.3;
+		text-align: center;
+	}
+	.itemswrap {
+		width: 90%;
+		margin: 0 auto;
+	}
+	.course-listing {
+		margin-bottom: 40px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+.course-box {
+	border: 1px solid $color-dark-green;
+	margin: 20px 0;
+	.left {
+		@media screen and (min-width: $tabwidth) {
+			width: 66%;
+			float: left;
+		}
+	}
+	.right {
+		@media screen and (min-width: $tabwidth) {
+			width: 30%;
+			float: right;
+			text-align: right;
+		}
+	}
+	.course-cat {
+		padding: 10px 20px;
+		background: $color-dark-green;
+		color: #FFF;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	.course-info {
+		padding: 10px 20px;
+	}
+	.ctitle {
+		font-size: 16px;
+		font-weight: 600;
+		color: $color-dark-green;
+	}
+	.cprice {
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 5px;
+	}
+	.c_addcart_btn .add_to_cart_button {
+		text-decoration: none;
+		display: inline-block;
+		background: $color-yellow;
+		padding: 8px 10px;
+		color: #FFF;
+		font-size: 13px;
+		&:hover {
+			color: #FFF;
+			background: #ffc645;
+		}
+	}
+	.added_to_cart {
+		text-decoration: underline;
+		position: relative;
+		left: 6px;
+		font-size: 13px;
 	}
 }
 

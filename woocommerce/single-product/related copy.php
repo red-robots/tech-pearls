@@ -51,24 +51,6 @@ if ( $related_products ) : ?>
 							 * @hooked woocommerce_show_product_loop_sale_flash - 10
 							 * @hooked woocommerce_template_loop_product_thumbnail - 10
 							 */
-							$thumbnail_id = get_post_thumbnail_id();
-							$img = wp_get_attachment_image_src($thumbnail_id,'large');
-							$img_alt = '';
-							$placeholder = get_bloginfo('template_url') . '/images/placeholder.jpg';
-							if($img) {
-								$img_parts = basename($img[0]);
-								$img_alt = get_the_title($thumbnail_id);
-								$img_src = $img[0];
-							} else {
-								$img_src = $placeholder;
-							}
-							?>
-
-							<a class="relatedProdImage" href="<?php echo get_permalink(); ?>" style="background-image:url('<?php echo $img_src ?>');">
-								<img src="<?php echo $img_src; ?>" alt="<?php echo $img_alt; ?>" />
-							</a>
-							<?php
-							remove_action( 'woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail',10 );
 							do_action( 'woocommerce_before_shop_loop_item_title' );
 
 							/**

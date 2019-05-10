@@ -1910,6 +1910,7 @@ html[xmlns] .flexslider .slides{display:block}
 .widget select{max-width:100%}
 div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong{overflow-wrap:normal;word-wrap:normal;-ms-word-break:normal;word-break:normal;word-break:normal;-ms-hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;hyphens:none;page-break-inside:avoid}
 *{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+a{-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 html,body{position:relative}
 body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#063748}
 .text-center{text-align:center}
@@ -2149,10 +2150,11 @@ body.single-product .page-title{margin:0 0 5px;line-height:1.3}
 body.single-product .product_meta{margin-bottom:25px}
 body.single-product .related.products{width:100%;float:left;border-top:5px solid #063748;padding-top:15px;margin-top:20px}
 body.single-product .related.products h2{font-size:20px}
+body.single-product .related.products a.button{margin-top:5px;padding:7px 12px}
 .woocommerce div.product p.price,.woocommerce div.product span.price{color:#063748;font-weight:bold;font-size:20px}
 .woocommerce div.product form.cart{margin-bottom:20px}
-.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt{background:#fceb50;background:-webkit-linear-gradient(top,#fceb50 0,#f4cb11 100%);background:linear-gradient(to bottom,#fceb50 0,#f4cb11 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceb50',endColorstr='#f4cb11',GradientType=0);color:#333;border:1px solid #f4cb11;border-radius:5px;-webkit-appearance:none;box-shadow:none;text-shadow:1px 1px 1px rgba(255,255,255,0.5)}
-.woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover{color:#333;background:#f4cb11;background:-webkit-linear-gradient(top,#f4cb11 0,#fceb50 100%);background:linear-gradient(to bottom,#f4cb11 0,#fceb50 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4cb11',endColorstr='#fceb50',GradientType=0)}
+.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt{background:#fda32f;color:#FFF;box-shadow:none;border:0;-webkit-appearance:none;padding:10px 18px;font-size:16px;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+.woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover{background:#ffc645;color:#FFF}
 .woocommerce-Tabs-panel h3{margin-bottom:10px;margin-top:20px}
 .woocommerce a.button{color:#333;background-color:#d3d5d6;text-shadow:none !important}
 .woocommerce ul.products li.product .price{color:#063748;font-weight:bold}
@@ -2164,7 +2166,7 @@ body.woocommerce-cart .woocommerce button.button{background-color:#063748;color:
 body.woocommerce-checkout .woocommerce button.button{color:#063748 !important}
 .woocommerce button.button:disabled,.woocommerce button.button:disabled[disabled]{color:#FFF;opacity:.35}
 .woocommerce .related.products a.button{background-color:#fda32f;color:#FFF}
-.woocommerce .related.products a.button:hover{opacity:.5}
+.woocommerce .related.products a.button:hover{background:#ffc645;color:#FFF}
 .woocommerce .related.products .woocommerce-loop-product__title{color:#063748;text-decoration:none}
 .select2-container .select2-selection--single{height:30px;border:1px solid #CCC;border-radius:3px}
 .woocommerce-checkout #payment{background:#c1e3ea}
@@ -2175,6 +2177,40 @@ body.woocommerce-checkout .woocommerce button.button{color:#063748 !important}
 li.wc_payment_method label{font-weight:600}
 .woocommerce #content div.product.no-prod-image div.summary,.woocommerce div.product.no-prod-image div.summary,.woocommerce-page #content div.product.no-prod-image div.summary,.woocommerce-page div.product.no-prod-image div.summary{width:100%;float:left}
 .woocommerce-page div.product.no-prod-image .woocommerce-product-gallery{display:none}
+.woocommerce-tabs{margin-top:35px}
+.woocommerce ul.products li.product.related-item .woocommerce-loop-product__title{line-height:1.3;margin-top:3px}
+.woocommerce ul.products li.product .relatedProdImage{text-decoration:none;display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:200px;box-shadow:inset 0 0 0 100% transparent;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+@media screen and (min-width:600px){.woocommerce ul.products li.product .relatedProdImage{height:200px}
+}@media screen and (min-width:900px){.woocommerce ul.products li.product .relatedProdImage{height:230px}
+}.woocommerce ul.products li.product .relatedProdImage img{display:none}
+.woocommerce ul.products li.product .relatedProdImage:hover{box-shadow:inset 0 0 0 5px rgba(6,55,72,0.75)}
+.woocommerce ul.products a.button{text-decoration:none;display:inline-block;background:#fda32f;padding:10px 14px;color:#FFF}
+.woocommerce ul.products a.button:hover{background:#ffc645}
+.flexrow{position:relative;margin-left:-15px;margin-right:-15px}
+@media screen and (min-width:600px){.flexrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+}.flexrow .flexcol{box-sizing:border-box;position:relative;padding:15px}
+.courses-section{padding-top:50px;padding-bottom:50px}
+.courses-section .flexcol.course{text-align:center}
+@media screen and (min-width:600px){.courses-section .flexcol.course{width:33.3%}
+}.courses-section .icon img{width:80px;height:auto}
+.courses-section .title{margin:10px 0 5px;font-size:20px;font-weight:700;line-height:1.3}
+.courses-section .button{margin-top:28px}
+.courses-section .button a{display:inline-block;padding:6px 30px;background:#fda32f;color:#FFF;text-decoration:none;text-transform:uppercase;font-size:16px;font-weight:600}
+.courses-section .button a:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1)}
+.section-course-options{margin-bottom:30px}
+.section-course-options .catname{margin:0;padding:10px 20px;background:#fda32f;color:#063748;font-size:20px;font-weight:700;line-height:1.3;text-align:center}
+.section-course-options .itemswrap{width:90%;margin:0 auto}
+.section-course-options .course-listing{margin-bottom:40px;padding-left:20px;padding-right:20px}
+.course-box{border:1px solid #063748;margin:20px 0}
+@media screen and (min-width:600px){.course-box .left{width:66%;float:left}
+}@media screen and (min-width:600px){.course-box .right{width:30%;float:right;text-align:right}
+}.course-box .course-cat{padding:10px 20px;background:#063748;color:#FFF;font-size:16px;font-weight:600;line-height:1.3}
+.course-box .course-info{padding:10px 20px}
+.course-box .ctitle{font-size:16px;font-weight:600;color:#063748}
+.course-box .cprice{font-size:18px;font-weight:500;margin-bottom:5px}
+.course-box .c_addcart_btn .add_to_cart_button{text-decoration:none;display:inline-block;background:#fda32f;padding:8px 10px;color:#FFF;font-size:13px}
+.course-box .c_addcart_btn .add_to_cart_button:hover{color:#FFF;background:#ffc645}
+.course-box .added_to_cart{text-decoration:underline;position:relative;left:6px;font-size:13px}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

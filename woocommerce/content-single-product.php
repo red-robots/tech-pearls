@@ -64,6 +64,7 @@ $has_product_image = ( $product->get_image_id() ) ? 'has-prod-image':'no-prod-im
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
 
+		remove_action( 'woocommerce_single_product_summary','woocommerce_template_single_meta',40 );
 		add_action( 'woocommerce_single_product_summary','woocommerce_output_product_data_tabs',65 );
 		do_action( 'woocommerce_single_product_summary' );
 		?>
