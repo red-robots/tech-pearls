@@ -230,6 +230,18 @@ function generate_sitemap($menuName='top-menu',$pageWithCats=null,$orderByNavi=n
 }
 
 
+function format_phone_number($string) {
+    if(empty($string)) return '';
+    $append = '';
+    if (strpos($string, '+') !== false) {
+        $append = '+';
+    }
+    $string = preg_replace("/[^0-9]/", "", $string);
+    $string = preg_replace('/\s+/', '', $string);
+    return $append.$string;
+}
+
+
 function shortenText($string, $limit, $break=".", $pad="...") {
   if(strlen($string) <= $limit) return $string;
   if(false !== ($breakpoint = strpos($string, $break, $limit))) {
