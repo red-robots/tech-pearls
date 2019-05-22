@@ -2199,8 +2199,8 @@ li.wc_payment_method label{font-weight:600}
 .courses-section .button a:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1)}
 .section-course-options{margin-bottom:30px}
 .section-course-options .catname{margin:0;padding:10px 20px;background:#fda32f;color:#063748;font-size:20px;font-weight:700;line-height:1.3;text-align:center}
-.section-course-options .itemswrap{width:90%;margin:0 auto}
-.section-course-options .course-listing{margin-bottom:40px;padding-left:20px;padding-right:20px}
+.section-course-options .itemswrap{width:90%;margin:0 auto;padding-top:20px}
+.section-course-options .course-listing{margin-bottom:25px;padding-left:20px;padding-right:20px}
 .course-box{border:1px solid #063748;margin:20px 0}
 @media screen and (min-width:600px){.course-box .left{width:66%;float:left}
 }@media screen and (min-width:600px){.course-box .right{width:30%;float:right;text-align:right}
