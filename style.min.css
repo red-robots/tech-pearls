@@ -2135,7 +2135,7 @@ body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#06
 body.page-id-19 .gform_wrapper{max-width:800px;width:100%;margin-top:30px}
 body.woocommerce-account .entry-content input[type="submit"]{-webkit-appearance:none;border:1px solid #b11a1a;box-shadow:none;text-shadow:none;color:#FFF;font-size:13px;font-weight:bold;text-transform:uppercase;line-height:1.2;padding:7px 10px;background:#ce1212;background:-webkit-linear-gradient(top,#ce1212 1%,#aa0013 100%);background:linear-gradient(to bottom,#ce1212 1%,#aa0013 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce1212',endColorstr='#aa0013',GradientType=0);-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 body.woocommerce-account .entry-content input[type="submit"]:hover{background:#aa0013;background:-webkit-linear-gradient(top,#aa0013 0,#ce1212 99%);background:linear-gradient(to bottom,#aa0013 0,#ce1212 99%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#aa0013',endColorstr='#ce1212',GradientType=0)}
-#learndash_profile{overflow:hidden;margin-top:15px}
+#learndash_profile{overflow:hidden;margin-top:15px;padding-top:0}
 #learndash_profile table{width:100.1%;margin-bottom:0}
 #learndash_profile thead th{padding:7px 13px;background:#fda32f;color:#063748;text-align:left}
 #learndash_profile tbody td{padding-top:12px;padding-bottom:12px}
