@@ -2130,14 +2130,19 @@ body{font-family:"Open Sans",sans-serif;line-height:1.5;font-size:14px;color:#06
 .gform_wrapper ul.gform_fields .gfield_checkbox li{position:relative;padding-left:21px !important}
 .gform_wrapper ul.gform_fields .gfield_checkbox input[type="checkbox"]{margin:0 0 !important;position:absolute;top:1px;left:0}
 .gform_wrapper .gform_footer input[type=submit]{-webkit-appearance:none;border:0;background:#063748;color:#FFF;box-shadow:none;text-shadow:none;border-radius:5px;text-transform:uppercase;font-weight:bold;font-size:18px !important;line-height:1.2;margin:0 0 !important;padding:12px 35px;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
-.gform_wrapper .gform_footer input[type=submit]:hover{background:#1f6279}
+.gform_wrapper .gform_footer input[type=submit]:hover{background:#3c849c}
 #page .gform_wrapper .gform_footer{margin-top:5px}
 body.page-id-19 .gform_wrapper{max-width:800px;width:100%;margin-top:30px}
-body.woocommerce-account .entry-content input[type="submit"]{-webkit-appearance:none;border:1px solid #063748;box-shadow:none;text-shadow:none;color:#FFF;font-size:14px;font-weight:bold;text-transform:capitalize;line-height:1.2;padding:8px 12px;background:#165e66;background:-webkit-linear-gradient(top,#165e66 0,#063748 100%);background:linear-gradient(to bottom,#165e66 0,#063748 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#165e66',endColorstr='#063748',GradientType=0)}
-#learndash_profile{margin-top:15px}
+body.woocommerce-account .entry-content input[type="submit"]{-webkit-appearance:none;border:1px solid #b11a1a;box-shadow:none;text-shadow:none;color:#FFF;font-size:13px;font-weight:bold;text-transform:uppercase;line-height:1.2;padding:7px 10px;background:#ce1212;background:-webkit-linear-gradient(top,#ce1212 1%,#aa0013 100%);background:linear-gradient(to bottom,#ce1212 1%,#aa0013 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce1212',endColorstr='#aa0013',GradientType=0);-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+body.woocommerce-account .entry-content input[type="submit"]:hover{background:#aa0013;background:-webkit-linear-gradient(top,#aa0013 0,#ce1212 99%);background:linear-gradient(to bottom,#aa0013 0,#ce1212 99%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#aa0013',endColorstr='#ce1212',GradientType=0)}
+#learndash_profile{overflow:hidden;margin-top:15px}
+#learndash_profile table{width:100.1%;margin-bottom:0}
+#learndash_profile thead th{padding:7px 13px;background:#fda32f;color:#063748;text-align:left}
 #learndash_profile tbody td{padding-top:12px;padding-bottom:12px}
 #learndash_profile tbody tr:nth-child(odd) td{background-color:#f4f5f5}
-#learndash_profile tbody tr:hover td{background-color:#d7fbff}
+#learndash_profile tbody tr:hover td{background-color:#fdfbde}
+#learndash_profile .learndash_profile_heading{background:#fda32f;color:#063748;font-size:14px;font-weight:bold}
+#learndash_profile .profile_edit_profile a{text-decoration:underline}
 .learndash .notcompleted,#learndash_profile .notcompleted,.learndash .completed,#learndash_profile .completed{line-height:1.4;background-image:none;position:relative}
 .learndash .notcompleted:after,#learndash_profile .notcompleted:after,.learndash .completed:after,#learndash_profile .completed:after{content:"";display:block;width:30px;height:30px;background-repeat:no-repeat;background-position:center;position:absolute;top:-7px;right:0}
 .learndash .notcompleted:after,#learndash_profile .notcompleted:after{background-image:url("images/notcompleted.png")}
@@ -2211,6 +2216,59 @@ li.wc_payment_method label{font-weight:600}
 .course-box .c_addcart_btn .add_to_cart_button{text-decoration:none;display:inline-block;background:#fda32f;padding:8px 10px;color:#FFF;font-size:13px}
 .course-box .c_addcart_btn .add_to_cart_button:hover{color:#FFF;background:#ffc645}
 .course-box .added_to_cart{text-decoration:underline;position:relative;left:6px;font-size:13px}
+@media screen and (min-width:600px){.content-left-col .col-left{width:25%;float:left}
+}@media screen and (min-width:600px){.content-left-col .col-right{width:70%;float:right}
+}.page-template-page-account .woocommerce-MyAccount-content{width:100%;float:left;margin-bottom:15px}
+.page-template-page-account .woocommerce-MyAccount-content a.button{color:#FFF;background:#063748;border:0;-webkit-appearance:none;box-shadow:none;border-radius:5px;text-shadow:none;text-decoration:none;text-transform:uppercase;font-size:13px;padding:7px 13px;display:inline-block;margin-top:15px;border:2px solid #FFF;-webkit-transition:all ease-in .3s;transition:all ease-in .3s}
+.page-template-page-account .woocommerce-MyAccount-content a.button:focus{border:2px solid #1cccf7;box-shadow:0 0 8px 0 rgba(0,0,0,0.25)}
+.page-template-page-account .woocommerce-MyAccount-content a.button:hover{background:#3c849c}
+.page-template-page-account table.shop_table{border:1px solid #ccc}
+.page-template-page-account table.shop_table thead th{color:#063748;background:#fda32f;padding:5px 8px;text-align:left}
+.page-template-page-account table.shop_table thead th.woocommerce-orders-table__header-order-actions{text-align:right}
+.page-template-page-account table.shop_table tbody td{padding:6px 8px;border-bottom:1px solid #ccc;background-color:#f4f5f5}
+.page-template-page-account table.shop_table tbody tr:nth-child(odd) td{background-color:#fff}
+.page-template-page-account table.shop_table tbody tr:hover td{background-color:#fdfbde}
+.page-template-page-account table.shop_table td a.button{color:#FFF;background:#063748;border:0;-webkit-appearance:none;box-shadow:none;border-radius:5px;text-shadow:none;text-decoration:none;text-transform:uppercase;font-size:12px;padding:6px 8px 5px;display:inline-block;margin-top:15px;border:2px solid #FFF;-webkit-transition:all ease-in .3s;transition:all ease-in .3s;line-height:1;margin-top:0;border:0;background:#a5a5a5}
+.page-template-page-account table.shop_table td a.button:focus{border:2px solid #1cccf7;box-shadow:0 0 8px 0 rgba(0,0,0,0.25)}
+.page-template-page-account table.shop_table td a.button:hover{background:#3c849c}
+.page-template-page-account table.shop_table td a.button:hover{border:0}
+.page-template-page-account table.shop_table td.woocommerce-orders-table__cell-order-actions{text-align:right}
+.page-template-page-account .woocommerce-MyAccount-navigation{width:100%;float:left;margin-bottom:20px}
+@media screen and (min-width:600px){.page-template-page-account .woocommerce-MyAccount-navigation{margin-bottom:0}
+}.page-template-page-account .woocommerce-MyAccount-navigation ul{margin:0;padding:0;list-style:none}
+.page-template-page-account .woocommerce-MyAccount-navigation ul li a{display:block;padding:9px 12px;text-decoration:none;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc}
+.page-template-page-account .woocommerce-MyAccount-navigation ul li:first-child a{border-top:1px solid #ccc}
+.page-template-page-account .woocommerce-MyAccount-navigation ul li a:hover{color:#446773;background:#ececec}
+.page-template-page-account .woocommerce-MyAccount-navigation ul li.is-active a{color:#FFF;background:#063748;border-color:#063748}
+.page-template-page-account .login-title{margin:0 0 15px;font-size:22px;font-weight:600;text-transform:uppercase}
+.page-template-page-account button.button{color:#FFF;background:#063748;border:0;-webkit-appearance:none;box-shadow:none;border-radius:5px;text-shadow:none;text-decoration:none;text-transform:uppercase;font-size:15px;padding:10px 25px;display:inline-block;margin-top:15px;border:2px solid #FFF;-webkit-transition:all ease-in .3s;transition:all ease-in .3s}
+.page-template-page-account button.button:focus{border:2px solid #1cccf7;box-shadow:0 0 8px 0 rgba(0,0,0,0.25)}
+.page-template-page-account button.button:hover{background:#3c849c}
+.page-template-page-account .woocommerce-Address-title{position:relative;margin-bottom:10px}
+.page-template-page-account .woocommerce-Address-title h3{margin:0}
+.page-template-page-account .woocommerce-Address{border:1px solid #ccc;box-sizing:border-box;padding:15px}
+.page-template-page-account .woocommerce-Address.col-1{margin-bottom:15px}
+@media screen and (min-width:900px){.page-template-page-account .woocommerce-Address.col-1{margin-bottom:0}
+}.page-template-page-account legend{font-weight:bold;margin-bottom:10px}
+.page-template-page-account fieldset{padding:5px 20px}
+.login-wrapper{padding-top:30px;padding-bottom:30px}
+.login-wrapper .formcol{position:relative}
+.login-wrapper .formcol.left{margin-bottom:20px}
+@media screen and (min-width:600px){.login-wrapper .formcol.left{width:48%;float:left;margin-bottom:0}
+}@media screen and (min-width:600px){.login-wrapper .formcol.right{width:48%;float:right}
+}.login-wrapper .formcol form{display:block;padding:27px 25px 25px;border:1px solid #ccc;border-radius:5px;position:relative}
+.login-wrapper button.button{color:#FFF;background:#063748;border:0;-webkit-appearance:none;box-shadow:none;border-radius:5px;text-shadow:none;text-decoration:none;text-transform:uppercase;font-size:15px;padding:10px 25px;display:inline-block;margin-top:15px;border:2px solid #FFF;-webkit-transition:all ease-in .3s;transition:all ease-in .3s}
+.login-wrapper button.button:focus{border:2px solid #1cccf7;box-shadow:0 0 8px 0 rgba(0,0,0,0.25)}
+.login-wrapper button.button:hover{background:#3c849c}
+.login-wrapper .formtitle{position:absolute;left:0;top:-21px}
+.login-wrapper .formtitle span{display:inline-block;font-size:20px;font-weight:600;color:#063748;text-transform:uppercase;background:#FFF;padding:5px 15px;position:relative;left:24px}
+.login-wrapper p.lost_password{font-weight:bold;margin-bottom:0}
+.login-wrapper p.woocommerce-FormRow{margin-bottom:0}
+.login-wrapper .form-row .input-text{height:36px;line-height:35px;font-size:16px;font-weight:600;padding:5px 8px;outline:0;-webkit-transition:all ease-in .3s;transition:all ease-in .3s}
+.login-wrapper .form-row .input-text:focus{border:1px solid #063748;box-shadow:0 0 8px 0 rgba(0,0,0,0.23)}
+.login-wrapper .woocommerce-form-login__rememberme input{position:relative;top:-1px;margin-right:3px}
+.woocommerce-message{border-top-color:#1b91ae}
+.woocommerce-message::before{color:#1b91ae}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

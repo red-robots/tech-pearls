@@ -989,7 +989,7 @@
     padding: 12px 35px;
     @include transition(all ease-out .3s);
     &:hover {
-    	background: #1f6279;
+    	background: #3c849c;
     }
 }
 #page .gform_wrapper .gform_footer {
@@ -1003,24 +1003,43 @@ body.page-id-19 .gform_wrapper {
 body.woocommerce-account {
 	.entry-content input[type="submit"] {
 		-webkit-appearance: none;
-		border: 1px solid #063748;
+		border: 1px solid #b11a1a;
 		box-shadow: none;
 		text-shadow: none;
 		color: #FFF;
-		font-size: 14px;
+		font-size: 13px;
 		font-weight: bold;
-		text-transform: capitalize;
+		text-transform: uppercase;
 		line-height: 1.2;
-    	padding: 8px 12px;
-		background: rgb(22,94,102);
-		background: -moz-linear-gradient(top, rgba(22,94,102,1) 0%, rgba(6,55,72,1) 100%);
-		background: -webkit-linear-gradient(top, rgba(22,94,102,1) 0%,rgba(6,55,72,1) 100%);
-		background: linear-gradient(to bottom, rgba(22,94,102,1) 0%,rgba(6,55,72,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#165e66', endColorstr='#063748',GradientType=0 );
+    	padding: 7px 10px;
+		background: rgb(206,18,18);
+		background: -moz-linear-gradient(top, rgba(206,18,18,1) 1%, rgba(170,0,19,1) 100%);
+		background: -webkit-linear-gradient(top, rgba(206,18,18,1) 1%,rgba(170,0,19,1) 100%);
+		background: linear-gradient(to bottom, rgba(206,18,18,1) 1%,rgba(170,0,19,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce1212', endColorstr='#aa0013',GradientType=0 );
+		@include transition(all ease-out .3s);
+		&:hover {
+			background: rgb(170,0,19);
+			background: -moz-linear-gradient(top, rgba(170,0,19,1) 0%, rgba(206,18,18,1) 99%);
+			background: -webkit-linear-gradient(top, rgba(170,0,19,1) 0%,rgba(206,18,18,1) 99%);
+			background: linear-gradient(to bottom, rgba(170,0,19,1) 0%,rgba(206,18,18,1) 99%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aa0013', endColorstr='#ce1212',GradientType=0 );
+		}
 	}
 }
 #learndash_profile {
+	overflow: hidden;
 	margin-top: 15px;
+	table {
+		width: 100.1%;
+		margin-bottom: 0;
+	}
+	thead th {
+		padding: 7px 13px;
+		background: $color-yellow;
+		color: $color-dark-green;
+		text-align: left;
+	}
 	tbody td {
 		padding-top: 12px;
 		padding-bottom: 12px;
@@ -1029,8 +1048,17 @@ body.woocommerce-account {
 		background-color: #f4f5f5;
 	}
 	tbody tr:hover td {
-		background-color: #d7fbff;
+		background-color: #fdfbde;
 	}
+	.learndash_profile_heading {
+		background: $color-yellow;
+		color: $color-dark-green;
+		font-size: 14px;
+    	font-weight: bold;
+	}
+}
+#learndash_profile .profile_edit_profile a {
+	text-decoration: underline;
 }
 .learndash .notcompleted, #learndash_profile .notcompleted,
 .learndash .completed, #learndash_profile .completed {
@@ -1403,4 +1431,215 @@ li.wc_payment_method label {
 	}
 }
 
+.content-left-col {
+	.col-left {
+		@media screen and (min-width: $tabwidth) {
+			width: 25%;
+			float: left;
+		}
+	}
+	.col-right {
+		@media screen and (min-width: $tabwidth) {
+			width: 70%;
+			float: right;
+		}
+	}
+}
+
+.page-template-page-account {
+	.woocommerce-MyAccount-content {
+		width: 100%;
+		float: left;
+		margin-bottom: 15px;
+		a.button {
+			@include button_style(13px,7px 13px);
+		}
+	}
+	table.shop_table {
+		border: 1px solid #ccc;
+		thead th {
+			color: $color-dark-green;
+			background: $color-yellow;
+			padding: 5px 8px;
+			text-align: left;
+			&.woocommerce-orders-table__header-order-actions {
+				text-align: right;
+			}
+		}
+		tbody td {
+			padding: 6px 8px;
+			border-bottom: 1px solid #ccc;
+			background-color: #f4f5f5;
+		}
+		tbody tr:nth-child(odd) td {
+			background-color: #FFFFFF;
+		}
+		tbody tr:hover td {
+			background-color: #fdfbde;
+		}
+		td a.button {
+			@include button_style(12px,6px 8px 5px);
+			line-height: 1;
+			margin-top: 0;
+			border: none;
+			background: #a5a5a5;
+			&:hover {
+				border: none;
+			}
+		}
+		td.woocommerce-orders-table__cell-order-actions {
+			text-align: right;
+		}
+	}
+	.woocommerce-MyAccount-navigation {
+		width: 100%;
+		float: left;
+		margin-bottom: 20px;
+		@media screen and (min-width: $tabwidth) {
+			margin-bottom: 0;
+		}
+		ul {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
+		}
+		ul li a {
+			display: block;
+			padding: 9px 12px;
+			text-decoration: none;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+		ul li:first-child a {
+			border-top: 1px solid #ccc;
+		}
+		ul li a:hover {
+			color: #446773;
+			background: #ececec;
+		}
+		ul li.is-active a {
+			color: #FFF;
+			background: $color-dark-green;
+			border-color: $color-dark-green;
+		}
+	}
+	.login-title {
+		margin: 0 0 15px;
+		font-size: 22px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	button.button {
+		@include button_style();
+	}
+	.woocommerce-Address-title {
+		position: relative;
+		margin-bottom: 10px;
+		h3 {
+			margin: 0 0;
+		}
+	}
+	.woocommerce-Address {
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		padding: 15px;
+		&.col-1 {
+			margin-bottom: 15px;
+			@media screen and (min-width: $midwidth) {
+				margin-bottom: 0;
+			}
+		}
+	}
+	legend {
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	fieldset {
+		padding: 5px 20px;
+	}
+}
+
+.login-wrapper {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	.formcol {
+		position: relative;
+	}
+	.formcol.left {
+		margin-bottom: 20px;
+		@media screen and (min-width: $tabwidth) {
+			width: 48%;
+			float: left;
+			margin-bottom: 0;
+		}
+	}
+	.formcol.right {
+		@media screen and (min-width: $tabwidth) {
+			width: 48%;
+			float: right;
+		}
+	}
+	.formcol form {
+		display: block;
+		padding: 27px 25px 25px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		position: relative;
+	}
+	button.button {
+		@include button_style();
+	}
+	.formtitle {
+		position: absolute;
+		left: 0;
+		top: -21px;
+		span {
+			display: inline-block;
+			font-size: 20px;
+			font-weight: 600;
+			color: $color-dark-green;
+			text-transform: uppercase;
+			background: #FFF;
+			padding: 5px 15px;
+			position: relative;
+    		left: 24px;
+		}
+	}
+	p.lost_password {
+		font-weight: bold;
+		margin-bottom: 0;
+	}
+	p.woocommerce-FormRow {
+		margin-bottom: 0;
+	}
+	.form-row .input-text {
+		height: 36px;
+		line-height: 35px;
+		font-size: 16px;
+		font-weight: 600;
+		padding: 5px 8px;
+		outline: none;
+		@include transition(all ease-in .3s);
+		&:focus {
+			border: 1px solid $color-dark-green;
+			-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.23);
+			-moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.23);
+			box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.23);
+		}
+	}
+	.woocommerce-form-login__rememberme {
+		input {
+			position: relative;
+			top: -1px;
+			margin-right: 3px;
+		}
+	}
+}
+.woocommerce-message {
+	border-top-color: #1b91ae;
+}
+.woocommerce-message::before {
+	color: #1b91ae;
+}
 

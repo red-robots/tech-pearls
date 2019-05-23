@@ -49,7 +49,7 @@
 								<?php if(is_user_logged_in()) { ?>
 									<a href="<?php echo get_site_url()?>/my-account/">My Account</a>
 								<?php } else { ?>
-									<a href="<?php echo get_site_url()?>/login/">Login</a>
+									<a href="<?php echo get_site_url()?>/my-account/">Login</a>
 								<?php } ?>
 								<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">My Cart<?php echo $cart_total_text;?></a>
 							</div>
