@@ -8,7 +8,7 @@
  *
  * @package ACStarter
  */
-
+use Dompdf\Dompdf;
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

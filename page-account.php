@@ -33,9 +33,6 @@ if( is_user_logged_in() ) {
 	}
 }
 
-
-
-
 get_header(); ?>
 
 	<div id="primary" class="full-content-area clear default-theme">
@@ -60,7 +57,14 @@ get_header(); ?>
 								<?php do_action( 'woocommerce_account_content' ); ?>
 							</div>
 							<?php } else { ?>
-								<?php the_content(); ?>
+								<?php 
+									$content = get_the_content();
+									$content = strip_shortcodes( $content );
+									$the_content = apply_filters("the_content",$content);
+									echo $the_content;
+									get_template_part('inc/myprofile');
+									//the_content();
+								?>
 							<?php } ?>
 						</div>
 

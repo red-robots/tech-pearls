@@ -1040,6 +1040,9 @@ body.woocommerce-account {
 		background: $color-yellow;
 		color: $color-dark-green;
 		text-align: left;
+		&.ld_profile_certificate {
+			text-align: center;
+		}
 	}
 	tbody td {
 		padding-top: 12px;
@@ -1642,5 +1645,61 @@ li.wc_payment_method label {
 }
 .woocommerce-message::before {
 	color: #1b91ae;
+}
+.certificate_icon_large {
+	background:none!important;
+	width: 30px;
+	height: 20px;
+	position: relative;
+	&:before {
+		content: "\f559";
+		font-family: "Font Awesome 5 Pro";
+		font-weight: 900;
+		font-size: 25px;
+		color: #1b5d6d;
+		position: relative;
+		top: -9px;
+		-moz-osx-font-smoothing: grayscale;
+    	-webkit-font-smoothing: antialiased;
+	}
+}
+
+.error-404 {
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 40px;
+}
+.page-link-list {
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	ul.linklist ul {
+		padding-left: 15px;
+	}
+	li {
+		position: relative;
+		padding-left: 14px;
+		&:before {
+			content:"";
+			display: block;
+			width: 6px;
+			height: 6px;
+			background: $color-dark-green;
+			position: absolute;
+			top: 8px;
+			left: 0;
+		}
+		a {
+			display: inline-block;
+			color: $color-dark-green;
+			text-decoration: none;
+			&:hover {
+				opacity: 0.45;
+			}
+		}
+	}
 }
 

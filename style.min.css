@@ -2138,6 +2138,7 @@ body.woocommerce-account .entry-content input[type="submit"]:hover{background:#a
 #learndash_profile{overflow:hidden;margin-top:15px;padding-top:0}
 #learndash_profile table{width:100.1%;margin-bottom:0}
 #learndash_profile thead th{padding:7px 13px;background:#fda32f;color:#063748;text-align:left}
+#learndash_profile thead th.ld_profile_certificate{text-align:center}
 #learndash_profile tbody td{padding-top:12px;padding-bottom:12px}
 #learndash_profile tbody tr:nth-child(odd) td{background-color:#f4f5f5}
 #learndash_profile tbody tr:hover td{background-color:#fdfbde}
@@ -2269,6 +2270,15 @@ li.wc_payment_method label{font-weight:600}
 .login-wrapper .woocommerce-form-login__rememberme input{position:relative;top:-1px;margin-right:3px}
 .woocommerce-message{border-top-color:#1b91ae}
 .woocommerce-message::before{color:#1b91ae}
+.certificate_icon_large{background:none !important;width:30px;height:20px;position:relative}
+.certificate_icon_large:before{content:"\f559";font-family:"Font Awesome 5 Pro";font-weight:900;font-size:25px;color:#1b5d6d;position:relative;top:-9px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+.error-404{max-width:600px;width:100%;margin:0 auto;padding-bottom:40px}
+.page-link-list ul{margin:0;padding:0;list-style:none}
+.page-link-list ul.linklist ul{padding-left:15px}
+.page-link-list li{position:relative;padding-left:14px}
+.page-link-list li:before{content:"";display:block;width:6px;height:6px;background:#063748;position:absolute;top:8px;left:0}
+.page-link-list li a{display:inline-block;color:#063748;text-decoration:none}
+.page-link-list li a:hover{opacity:.45}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

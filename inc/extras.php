@@ -44,191 +44,248 @@ function add_query_vars_filter( $vars ) {
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
 
-/* GENERATE SITEMAP */
-function generate_sitemap($menuName='top-menu',$pageWithCats=null,$orderByNavi=null) {
-    global $wpdb;
-    $lists = array();
-    $menus = wp_get_nav_menu_items($menuName);
-    $menu_orders = array();
-    $menu_with_children = array();
-    $navi_order = array();
+/* SITE MAP */
+function generate_sitemap($menuName=null,$sortbyMenu=null) {
+  global $wpdb;
+  $pages = $wpdb->get_results( "SELECT ID,post_title,post_parent,post_type FROM {$wpdb->prefix}posts WHERE post_type = 'page' AND post_status='publish' ORDER BY post_title ASC", OBJECT );
+  $links = array();
+  $menus = ($menuName) ? wp_get_nav_menu_items($menuName) : '';
+  $site_url = get_site_url();
+  $menu_pages = array();
 
-    if($menus) {
-        $i=0;
-        foreach($menus as $m) {
-            $page_id = $m->object_id;
-            $menu_title = $m->title;
-            $page_url = $m->url;
-            $post_parent = $m->post_parent;
-            $submenu = array();
-            $navi_order[] = $page_id;
-            if($post_parent) {
-                $submenu = array(
-                        'id'=>$page_id,
-                        'title'=>$menu_title,
-                        'url'=>$page_url
-                    );
-                $menu_with_children[$post_parent][$page_id] = $submenu;
+  if( $menus ) {
+    foreach ($menus as $m) {
+      $m_id = $m->ID;
+      $m_type = $m->type;
+      $pagelink = $m->url;
+      $menu_parent_id = $m->menu_item_parent;
+      $object_id = $m->object_id;
+      $parts = explode("#",$pagelink);
+
+      if( $m_type =='custom' ) {
+        $custom_url_parse = parse_url($pagelink);
+        $site_url_parse = parse_url($site_url);
+        if( isset($custom_url_parse['host']) && $custom_url_parse['host'] ) {
+          $custom_host = $custom_url_parse['host'];
+          $site_host = $site_url_parse['host'];
+          if($custom_host!=$site_host) {
+            $m->url = $pagelink;
+            $m->external_link = $pagelink;
+          }
+        } else {
+
+          $hash = ($parts) ? array_filter($parts) : false;
+
+          if( $hash ) {
+            if (strpos($pagelink, $site_url) !== false) {
+              $pagelink = $pagelink;
             } else {
-                $menu_orders[$page_id] = $menu_title;
-            } 
-            $i++;
-        }
-    }    
-    
-    $results = $wpdb->get_results( "SELECT ID,post_title FROM {$wpdb->prefix}posts WHERE post_type = 'page' AND post_status='publish' AND post_parent=0 ORDER BY post_title ASC", OBJECT );
-    $childPages = $wpdb->get_results( "SELECT ID,post_title,post_parent as parent_id FROM {$wpdb->prefix}posts WHERE post_type = 'page' AND post_status='publish' AND post_parent>0 ORDER BY post_title ASC", OBJECT );
-    $childrenList = array();
-    $childrenAll = array();
+              $str = ltrim($pagelink, '/');
+              $pagelink = $site_url . '/' . $str;
+            }
+            $m->url = $pagelink;
+          }
 
-    /* child pages */
-    if($childPages) {
-        foreach($childPages as $cp) {
-            $pId = $cp->parent_id;
-            $iD = $cp->ID;
-            $childrenAll[$iD] = array(
-                                'id'=>$cp->ID,
-                                'title'=>$cp->post_title,
-                                'url'=>get_permalink($iD)
-                            );
-            $childrenList[$pId][] = array(
-                                'id'=>$cp->ID,
-                                'title'=>$cp->post_title,
-                                'url'=>get_permalink($cp->ID)
-                            );
         }
+
+      } else {
+        $menu_pages[$object_id] = $m->title;
+      }
+    }
+  }
+
+  /* Sort Sitemap by Menu Order */
+  if( $sortbyMenu ) {
+    if( $menus ) {
+
+      foreach ($menus as $m) {
+        $id = $m->ID;
+        $menu_name = $m->title;
+        $m_type = $m->type;
+        $object_id = $m->object_id;
+        $pagelink = $m->url;
+        $menu_parent_id = $m->menu_item_parent;
+        $external_link = ( isset($m->external_link) && $m->external_link ) ?  true : false;
+        if($menu_parent_id>0) {
+          $links[$menu_parent_id]['children'][] = array(
+              'title' => $menu_name,
+              'id'  => $object_id,
+              'url' => $pagelink,
+              'external_link'=>$external_link
+          );
+        } else {
+          $links[$id] = array(
+            'title' => $menu_name,
+            'id'  => $object_id,
+            'url' => $pagelink,
+            'external_link'=>$external_link
+          );
+        } 
+      }
+
     }
 
-    
+  } else {
 
-    if($results) {
-        foreach($results as $row) {
-            $id = $row->ID;
-            $page_title = $row->post_title;
-            $page_link = get_permalink($id);
-        
-            if($menu_orders) {
-                $first_menu = array_values($menu_orders)[0];
-                if($page_title=='Homepage') {
-                    $page_title = $first_menu;
-                }
-                if(array_key_exists($id,$menu_orders)) {
-                    $page_title = $menu_orders[$id];
-                }
-            }
+    /* Sort pages alphabetically */
+    $links = array();
+    $children_menus = array();
+    $custom_menu_children = array();
 
-            $lists[$id]['parent_id'] = $id;
-            $lists[$id]['parent_title'] = $page_title;
-            $lists[$id]['parent_url'] = $page_link;
-            
-            if($menu_with_children) {
-
-                $ii_childrens = array();
-                if(array_key_exists($id,$menu_with_children)) {
-                    $ii_childrens = $menu_with_children[$id];
-                    $lists[$id]['children'] = $ii_childrens;
-                }
-
-                /* Show children page even if does not exist on Menu dropdown */
-                if($childrenList && array_key_exists($id, $childrenList)) {
-                    $cc_children = $childrenList[$id];
-                    $exist_children = $lists[$id]['children'];
-                    
-                    foreach($cc_children as $cd) {
-                        $x_id = $cd['id'];
-                        if(!array_key_exists($x_id, $ii_childrens)) {
-                            $addon[$x_id] = $cd;
-                            $exist_children[$x_id] = $cd;
-                        }
-                    } 
-
-                    $lists[$id]['children'] = $exist_children;
-                }
-
-            } else {
-                if($childrenList && array_key_exists($id, $childrenList)) {
-                    $c_obj = $childrenList[$id];
-                    $lists[$id]['children'] = $c_obj;
-                }
-            }
-
-
-            if($pageWithCats) {
-                foreach($pageWithCats as $p) {
-                    $pageid = $p['id'];
-                    $taxo = (isset($p['taxonomy']) && $p['taxonomy']) ? $p['taxonomy'] : '';
-                    $post_type = (isset($p['post_type']) && $p['post_type']) ? $p['post_type'] : '';
-                    if($pageid==$id) {
-                        if($taxo) {
-                            $o_terms = get_terms( array(
-                                'taxonomy' => $taxo,
-                                'hide_empty' => false,
-                            ) );
-                            if($o_terms){
-                                foreach ($o_terms as $t) {
-                                    $term_id = $t->term_id;
-                                    $term_name = $t->name;
-                                }
-                                $lists[$id]['categories'] = $o_terms;
-                            }
-                        }
-                        if($post_type) {
-                            $args = array(
-                                'posts_per_page'    => -1,
-                                'post_type'         => $post_type,
-                                'post_status'       => 'publish'  
-                            );
-                            $p_posts = get_posts($args);
-                            if($p_posts) {
-                                $p_children = array();
-                                foreach($p_posts as $pp) {
-                                    $p_children[] = array(
-                                            'title'=>$pp->post_title,
-                                            'url'=> get_permalink($pp->ID)
-                                        );
-                                }
-                                $lists[$id]['children'] = $p_children;
-                            }
-                        }
-                    }
-                }
-            }
-
-            // $cat_args = array('hide_empty' => 1, 'parent' => 0, 'exclude'=>array(1));
-            // $i_parent_ID = 8; /* Artwork page */
-            // $artwork_terms = get_terms( array(
-            //     'taxonomy' => 'arttypes',
-            //     'hide_empty' => false,
-            // ));
-            // if($id == $i_parent_ID) {
-            //     $lists[$id]['categories'] = $artwork_terms;
-            // }
-        }   
-    }
-
-    $new_list = array();
-    if($orderByNavi && $menus && $lists) {
-        foreach($navi_order as $x_id) {
-            if( array_key_exists($x_id, $lists) ) {
-                $new_items = $lists[$x_id];
-                $new_list[$x_id] = $new_items;
-            } 
+    if( $pages ) {
+      foreach( $pages as $p ) {
+        $id = $p->ID;
+        $page_title = $p->post_title;
+        $parent_id = $p->post_parent;
+        if( $page_title=='Homepage' ) {
+          $page_title = 'Home';
+        }
+        if( $menu_pages && array_key_exists($id, $menu_pages) ) {
+          $page_title = $menu_pages[$id];
         }
 
-        foreach($lists as $k_id=>$k_vars) {
-            if( !in_array($k_id, $orderByNavi) ) {
-                $new_list[$k_id] = $k_vars;
-            }
+        $pagelink = get_permalink($id); 
+        if($parent_id>0) {
+          $children_menus[$parent_id][$id] = array(
+                'title' => $page_title,
+                'id'  => $id,
+                'url' => $pagelink
+            );
+        } else {
+           $links[$id] = array(
+                'title' => $page_title,
+                'id'  => $id,
+                'url' => $pagelink
+              );
         }
+      }
     }
 
-    if($new_list) {
-        return $new_list;   
-    } else {
-        return $lists;   
+    /* Add custom menu */
+    if( $menus ) {
+      foreach ($menus as $m) {
+        $id = $m->ID;
+        $menu_name = $m->title;
+        $m_type = $m->type;
+        $object_id = $m->object_id;
+        $pagelink = $m->url;
+        $menu_parent_id = $m->menu_item_parent;
+        $external_link = ( isset($m->external_link) && $m->external_link ) ?  true : false;
+
+        if( $menu_parent_id > 0 ) {
+          $menuObj = get_menu_object( $menu_parent_id, $menuName );
+          $menu_object_id = ( isset($menuObj->object_id) && $menuObj->object_id ) ? $menuObj->object_id : '';
+
+          $children_menus[$menu_object_id][$object_id] = array(
+            'title' => $menu_name,
+            'id'  => $object_id,
+            'url' => $pagelink,
+            'external_link'=>$external_link
+          );
+
+          $existing_children = ( isset($children_menus[$menu_object_id]) && $children_menus[$menu_object_id] ) ? $children_menus[$menu_object_id] : '';
+          if( $existing_children && !array_key_exists($object_id, $existing_children)) {
+            $children_menus[$menu_object_id][$object_id] = array(
+              'title' => $menu_name,
+              'id'  => $object_id,
+              'url' => $pagelink,
+              'external_link'=>$external_link
+            );
+          }
+          
+          
+
+        } else {
+
+          if( $m_type=='custom' ) {
+            $links[$object_id] = array(
+              'title' => $menu_name,
+              'id'  => $object_id,
+              'url' => $pagelink,
+              'external_link'=>$external_link
+            );
+          }
+          
+        } 
+
+      }
+    }
+
+  }
+
+
+  /* Arrange parent links alphabetically */
+  if( !$sortbyMenu ) {
+    /* Arrange children menu alphabetically */
+    if( $children_menus ) {
+      foreach( $children_menus as $parent_id=>$child_objects ) {
+        $child_sorted = sort_array_items($child_objects, 'title', 'ASC');
+        $children_menus[$parent_id] = $child_sorted;
+        if( array_key_exists($parent_id, $links)) {
+          $children = array_values($child_sorted);
+          $links[$parent_id]['children'] = $children;
+        }
+      }
+    }
+    $links = ($links) ? sort_array_items($links, 'title', 'ASC') : '';
+  }
+  
+  return $links;
+  
+}
+
+function get_menu_object( $menuId, $menuName ) {
+  $obj = '';
+  if( $menuId && $menuName ) {
+    if( $menus = wp_get_nav_menu_items($menuName) ) {
+      foreach( $menus as $m ) {
+        $id = $m->ID;
+        if( $menuId==$id ) {
+          $obj = $m;
+          break;
+        }
+      }
+    }
+  }
+  return $obj;
+}
+
+function string_cleaner($str) {
+    if($str) {
+        $str = str_replace(' ', '', $str); 
+        $str = preg_replace('/\s+/', '', $str);
+        $str = preg_replace('/[^A-Za-z0-9\-]/', '', $str);
+        $str = strtolower($str);
+        $str = trim($str);
+        return $str;
     }
 }
 
+
+function sort_array_items($array, $key, $sort='DESC') {
+    $sorter=array();
+    $ret=array();
+    $items = array();
+
+    foreach($array as $k=>$v) {
+        $str = string_cleaner($v[$key]);
+        $index = $str.'_'.$k;
+        $sorter[$index] = $v;
+    }
+
+    if($sort=='DESC') {
+        krsort($sorter);
+    } else {
+        ksort($sorter);
+    }
+
+    foreach($sorter as $key=>$val) {
+        $parts = explode('_',$key);
+        $n = $parts[1];
+        $items[$n] = $val;
+    }
+    return $items;
+}
 
 function format_phone_number($string) {
     if(empty($string)) return '';
