@@ -131,21 +131,21 @@ img.cert {
 		}
 
 		$content = get_the_content();
-		$content = apply_filters('the_content',$content);
 		$content = preg_replace( '|\[pdf[^\]]*?\].*?\[/pdf\]|i', '', $content );
 		$content = str_replace($rep_course_info1, $course_title, $content);
 		$content = str_replace($rep_course_info2, $course_title, $content);
 		$content = str_replace($rep_first_name1, $first_name, $content);
 		$content = str_replace($rep_first_name2, $first_name, $content);
-		$content = str_replace($rep_last_name1, '', $content);
-		$content = str_replace($rep_last_name2, '', $content);
+		$content = str_replace($rep_last_name1, $last_name, $content);
+		$content = str_replace($rep_last_name2, $last_name, $content);
 		$content = str_replace($rep_completed_on1, $date_completed, $content);
 		$content = str_replace($rep_completed_on2, $date_completed, $content);
 
 		/* Full Name */
-		$content = str_replace($first_name, $full_name, $content);
-		$the_content = apply_filters('the_content',$content);
-		echo $the_content;
+		//$the_content = str_replace($first_name, $full_name, $content);
+		//$content = str_replace($first_name, $full_name, $content);
+		$content = apply_filters('the_content',$content);
+		echo $content;
 	?>
 	<?php endwhile; ?>
 </div>
