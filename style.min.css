@@ -2270,8 +2270,8 @@ li.wc_payment_method label{font-weight:600}
 .login-wrapper .woocommerce-form-login__rememberme input{position:relative;top:-1px;margin-right:3px}
 .woocommerce-message{border-top-color:#1b91ae}
 .woocommerce-message::before{color:#1b91ae}
-.certificate_icon_large{background:none !important;width:30px;height:20px;position:relative}
-.certificate_icon_large:before{content:"\f559";font-family:"Font Awesome 5 Pro";font-weight:900;font-size:25px;color:#1b5d6d;position:relative;top:-9px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+.certificate_icon_large{background:none !important;width:30px;height:25px;position:relative;top:-1px}
+.certificate_icon_large:before{content:"";display:inline-block;width:25px;height:25px;background-image:url("images/award.png");background-size:contain;background-position:center;background-repeat:no-repeat}
 .error-404{max-width:600px;width:100%;margin:0 auto;padding-bottom:40px}
 .page-link-list ul{margin:0;padding:0;list-style:none}
 .page-link-list ul.linklist ul{padding-left:15px}
