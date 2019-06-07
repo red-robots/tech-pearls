@@ -131,6 +131,7 @@ img.cert {
 		}
 
 		$content = get_the_content();
+		$content = apply_filters('the_content',$content);
 		$content = preg_replace( '|\[pdf[^\]]*?\].*?\[/pdf\]|i', '', $content );
 		$content = str_replace($rep_course_info1, $course_title, $content);
 		$content = str_replace($rep_course_info2, $course_title, $content);
