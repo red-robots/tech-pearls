@@ -62,7 +62,10 @@ get_header(); ?>
 									$content = strip_shortcodes( $content );
 									$the_content = apply_filters("the_content",$content);
 									echo $the_content;
-									get_template_part('inc/myprofile');
+									// get_template_part('inc/myprofile');
+									// ^^^ shortcode output updated, 
+									// your /inc/myprofile page needs an update if you want to use it
+									echo do_shortcode('[pearls_my_account]');
 									//the_content();
 								?>
 							<?php } ?>
@@ -160,3 +163,4 @@ get_header(); ?>
 
 <?php
 get_footer();
+
