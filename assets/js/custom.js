@@ -121,4 +121,25 @@ jQuery(document).ready(function ($) {
 	    }    
 	});
 
+	$("#learndash_profile table .certificate_icon_large").each(function(){
+		var parent = $(this).parents('a');
+		var url = parent.attr('href');
+		var course_id = getUrlParameter('course_id',url);
+		var nonce = getUrlParameter('cert-nonce',url);
+		if(course_id && nonce) {
+			if( certURL ) {
+				var newLink = certURL + '?course_id=' + course_id + '&cert-nonce=' + nonce;
+				parent.attr('href',newLink);
+			} 
+		}
+
+	});
+
+	function getUrlParameter(name,url) {
+	    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+	    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+	    var results = regex.exec(url);
+	    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	};
+
 });// END #####################################    END

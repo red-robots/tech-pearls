@@ -8,7 +8,7 @@
  *
  * @package ACStarter
  */
-use Dompdf\Dompdf;
+//use Dompdf\Dompdf;
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -17,6 +17,20 @@ use Dompdf\Dompdf;
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 <script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
+
+<?php  
+global $post;
+$cert_url = '';
+$post_slug = ( isset($post->post_name) ) ? $post->post_name : '';
+if($post_slug=="my-account") {
+	$cert_post_id = get_active_certificate();
+	$cert_url = ($cert_post_id) ? get_permalink($cert_post_id) : '';
+}
+?>
+<script type="text/javascript">
+	var siteURL = '<?php echo get_site_url()?>';
+	var certURL = '<?php echo $cert_url?>';
+</script>
 <?php wp_head(); ?>
 </head>
 

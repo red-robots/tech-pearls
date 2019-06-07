@@ -1,7 +1,4 @@
 <?php
-/* 
-* Template Name: Certificate of Completion
-*/
 
 $template_dir = get_template_directory();
 $learndash_plugin_path = ABSPATH . 'wp-content/plugins/pearls/';
@@ -13,11 +10,15 @@ Dompdf\Autoloader::register();
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-$certificateTemplate = get_template_directory_uri().'/images/certificateTemplate.jpg';
+//$certificateTemplate = get_template_directory_uri().'/images/certificateTemplate.jpg';
+$post_id = get_the_ID();
+$certificateImg = get_field('background',$post_id);
+$certificateTemplate = ($certificateImg) ? $certificateImg['url'] : '';
+
 $create_pdf = false;
 
-if ( ( isset( $_GET['courseId'] ) ) && ( ! empty( $_GET['courseId'] ) ) ) {
-	$course_id = intval( $_GET['courseId'] );
+if ( ( isset( $_GET['course_id'] ) ) && ( ! empty( $_GET['course_id'] ) ) ) {
+	$course_id = intval( $_GET['course_id'] );
 	if ( ( ( learndash_is_admin_user() ) || ( learndash_is_group_leader_user() ) ) && ( ( isset( $_GET['user'] ) ) && ( ! empty( $_GET['user'] ) ) ) ) {
 		$cert_user_id = intval( $_GET['user'] );
 	} else {
@@ -55,8 +56,10 @@ p {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100%; 
+	<?php if($certificateTemplate) { ?>
 	background:url('<?php echo $certificateTemplate;?>');
+	<?php } ?>
 }
 img.cert {
 	position: fixed;

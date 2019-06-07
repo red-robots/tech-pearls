@@ -325,3 +325,39 @@ function my_custom_admin_head() { ?>
 }
 add_action( 'admin_head', 'my_custom_admin_head' );
 
+
+function my_acf_save_post( $post_id ) {
+    global $wpdb;
+    // bail early if no ACF data
+    if( empty($_POST['acf']) ) {
+        
+        return;
+        
+    }
+  
+    // array of field values
+    $fields = $_POST['acf'];
+
+    /* Active Certificate */
+    $field = $_POST['acf']['field_5cf9f3dac4039'];
+    //update_field($selector, $value, $post_id);
+
+    $result = $wpdb->get_results( "SELECT post.ID as post_id FROM {$wpdb->prefix}posts post, {$wpdb->prefix}postmeta meta WHERE post.ID=meta.post_id AND meta.meta_value=1 AND post.post_type = 'custom_certificates' AND post.post_status='publish'", OBJECT );
+    if($result) {
+      foreach($result as $row) {
+        $pid = $row->post_id;
+        if($pid!==$post_id) {
+          update_field('field_5cf9f3dac4039', 0, $pid);
+        }
+      }
+    }
+}
+
+add_action('acf/save_post', 'my_acf_save_post', 1);
+
+function get_active_certificate() {
+  global $wpdb;
+  $result = $wpdb->get_row( "SELECT post.ID as post_id FROM {$wpdb->prefix}posts post, {$wpdb->prefix}postmeta meta WHERE post.ID=meta.post_id AND meta.meta_value=1 AND post.post_type = 'custom_certificates' AND post.post_status='publish'", OBJECT );
+  return ($result) ? $result->post_id : 0;
+}
+

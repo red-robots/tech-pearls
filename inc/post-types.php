@@ -6,6 +6,16 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
         array(
+            'post_type' => 'custom_certificates',
+            'menu_name' => 'Custom Certificates',
+            'plural'    => 'Custom Certificates',
+            'single'    => 'Custom Certificate',
+            'menu_icon' => 'dashicons-awards',
+            'supports'  => array('title','editor'),
+            'menu_position'=> 3,
+            'rewrite'   => array('slug' => 'mycertificates','with_front' => false)
+        ),
+        array(
             'post_type' => 'team',
             'menu_name' => 'Team',
             'plural'    => 'Team',
@@ -34,6 +44,7 @@ function js_custom_init() {
             $taxonomies = ( isset($p['taxonomies']) && $p['taxonomies'] ) ? $p['taxonomies'] : array(); 
             $parent_item_colon = ( isset($p['parent_item_colon']) && $p['parent_item_colon'] ) ? $p['parent_item_colon'] : ""; 
             $menu_position = ( isset($p['menu_position']) && $p['menu_position'] ) ? $p['menu_position'] : 20; 
+            $rewrite = ( isset($p['rewrite']) && $p['rewrite'] ) ? $p['rewrite'] : true; 
             
             if($p_type) {
                 
@@ -60,7 +71,7 @@ function js_custom_init() {
                     'show_ui' => true, 
                     'show_in_menu' => true, 
                     'query_var' => true,
-                    'rewrite' => true,
+                    'rewrite' => $rewrite,
                     'capability_type' => 'post',
                     'has_archive' => false, 
                     'hierarchical' => false, // 'false' acts like posts 'true' acts like pages
@@ -134,6 +145,12 @@ function set_custom_cpt_columns($columns) {
     $query = isset($wp_query->query) ? $wp_query->query : '';
     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
     
+    if($post_type=='custom_certificates') {
+        unset( $columns['date'] );
+        $columns['is_active'] = __( 'Active', 'acstarter' );
+        $columns['date'] = __( 'Date', 'acstarter' );
+    }
+
     if($post_type=='team') {
         unset( $columns['date'] );
         $columns['photo'] = __( 'Photo', 'acstarter' );
@@ -164,6 +181,14 @@ function custom_post_column( $column, $post_id ) {
                 }
                 
                 echo $the_photo;
+        }
+    }
+
+    if($post_type=='custom_certificates') {
+        switch ( $column ) {
+            case 'is_active' :
+                $active = get_field('activate',$post_id);
+                echo ($active) ? '<span style="color:#2b9d0c;font-size:28px;line-height:1" class="dashicons dashicons-yes"></span>':'<strong>&mdash;</strong>';
         }
     }
     
