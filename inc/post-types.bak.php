@@ -6,6 +6,16 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
         array(
+            'post_type' => 'custom_certificates',
+            'menu_name' => 'Custom Certificates',
+            'plural'    => 'Custom Certificates',
+            'single'    => 'Custom Certificate',
+            'menu_icon' => 'dashicons-awards',
+            'supports'  => array('title','editor'),
+            'menu_position'=> 3,
+            'rewrite'   => array('slug' => 'mycertificates','with_front' => false)
+        ),
+        array(
             'post_type' => 'team',
             'menu_name' => 'Team',
             'plural'    => 'Team',
