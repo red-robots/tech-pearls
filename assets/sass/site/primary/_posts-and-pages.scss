@@ -1703,3 +1703,23 @@ li.wc_payment_method label {
 	}
 }
 
+.sfwd-quiz {
+	a.btn-primary,
+	a.btn,
+	input[type="button"],
+	input[type="submit"],
+	button {
+		border: none;
+		background: #409c4c;
+		color: #fff;
+		box-shadow: none;
+		text-shadow: none;
+		border-radius: 5px;
+		-webkit-appearance: none;
+		&:hover {
+			background: #44d054;
+			color: #FFF;
+		}
+	}
+}
+

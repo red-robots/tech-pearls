@@ -11,7 +11,6 @@ get_header(); ?>
 
 	<div id="primary" class="full-content-area area">
 		<main id="main" class="site-main wrapper" role="main">
-
 		<?php
 		while ( have_posts() ) : the_post();
 			if($post_type=='product') { ?>

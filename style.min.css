@@ -2279,6 +2279,8 @@ li.wc_payment_method label{font-weight:600}
 .page-link-list li:before{content:"";display:block;width:6px;height:6px;background:#063748;position:absolute;top:8px;left:0}
 .page-link-list li a{display:inline-block;color:#063748;text-decoration:none}
 .page-link-list li a:hover{opacity:.45}
+.sfwd-quiz a.btn-primary,.sfwd-quiz a.btn,.sfwd-quiz input[type="button"],.sfwd-quiz input[type="submit"],.sfwd-quiz button{border:0;background:#409c4c;color:#fff;box-shadow:none;text-shadow:none;border-radius:5px;-webkit-appearance:none}
+.sfwd-quiz a.btn-primary:hover,.sfwd-quiz a.btn:hover,.sfwd-quiz input[type="button"]:hover,.sfwd-quiz input[type="submit"]:hover,.sfwd-quiz button:hover{background:#44d054;color:#FFF}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}

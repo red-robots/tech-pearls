@@ -6,10 +6,11 @@
  *
  * @package ACStarter
  */
-
+$post_type = get_post_type();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if ($post_type!='sfwd-quiz') { ?>
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) {
@@ -25,6 +26,7 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
+	<?php } ?>
 
 	<div class="entry-content">
 		<?php
@@ -41,7 +43,4 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php acstarter_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
